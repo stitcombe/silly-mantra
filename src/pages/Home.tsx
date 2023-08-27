@@ -8,16 +8,23 @@ import {
   LinkOverlay,
   Text,
   Code,
+  keyframes,
 } from '@chakra-ui/react';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
 import '../App.css';
 
+const spin = keyframes`
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg)}
+`;
+
 function Home() {
+  const spinAnimation = `${spin} infinite 20s linear`;
   return (
     <Box>
-      <HStack spacing={4}>
-        <LinkBox as="image">
+      <HStack spacing={4} alignContent="center">
+        <LinkBox>
           <LinkOverlay
             href="https://vitejs.dev"
             target="_blank"
@@ -28,15 +35,18 @@ function Home() {
               alt="vite logo"
               height="6em"
               padding="1.5em"
-              will-change="filter"
               transition="filter 300ms"
+              filter="auto"
+              sx={{
+                willChange: 'filter',
+              }}
               _hover={{
-                filter: 'drop-shadow(0 0 2em #646cffaa)',
+                dropShadow: '0 0 2em #646cffaa',
               }}
             />
           </LinkOverlay>
         </LinkBox>
-        <LinkBox as="image">
+        <LinkBox>
           <LinkOverlay
             href="https://react.dev"
             target="_blank"
@@ -47,11 +57,15 @@ function Home() {
               alt="react logo"
               height="6em"
               padding="1.5em"
-              will-change="filter"
               transition="filter 300ms"
-              _hover={{
-                filter: 'drop-shadow(0 0 2em #646cffaa)',
+              filter="auto"
+              sx={{
+                willChange: 'filter',
               }}
+              _hover={{
+                dropShadow: '0 0 2em #646cffaa',
+              }}
+              animation={spinAnimation}
             />
           </LinkOverlay>
         </LinkBox>
