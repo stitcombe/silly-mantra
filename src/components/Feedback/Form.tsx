@@ -12,10 +12,10 @@ import {
 import FocusLock from 'react-focus-lock';
 
 export default function Form({
-  onBackClick,
+  onBack,
   onSubmit,
 }: {
-  onBackClick: React.MouseEventHandler<HTMLButtonElement>;
+  onBack: React.MouseEventHandler<HTMLButtonElement>;
   onSubmit: React.MouseEventHandler<HTMLButtonElement>;
 }): JSX.Element {
   return (
@@ -30,7 +30,7 @@ export default function Form({
           </FormControl>
         </VStack>
         <Flex>
-          <Button onClick={onBackClick}>Back</Button>
+          <Button onClick={onBack}>Back</Button>
           <Spacer />
           <Button onClick={onSubmit} colorScheme="teal">
             Submit

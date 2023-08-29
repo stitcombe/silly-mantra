@@ -75,7 +75,7 @@ function Feedback() {
           {popHeader}
         </PopoverHeader>
         {showForm ? (
-          <Form onBackClick={handleStartOver} onSubmit={toggleThanks} />
+          <Form onBack={handleStartOver} onSubmit={toggleThanks} />
         ) : (
           <PopoverBody>
             <ButtonGroup
