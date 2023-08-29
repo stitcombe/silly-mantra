@@ -1,57 +1,83 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Popover,
   PopoverTrigger,
   Button,
   PopoverContent,
-  PopoverCloseButton,
   PopoverHeader,
   PopoverBody,
-  Heading,
   ButtonGroup,
+  IconButton,
+  useDisclosure,
+  PopoverArrow,
 } from '@chakra-ui/react';
-import Submitted from './Feedback/Submitted';
+import { MdOutlineChat, MdClose } from 'react-icons/md';
+import Form from './Feedback/Form';
+
+const feedbackOptions = [
+  { id: 1, title: '😀 General feedback', short: 'feedback' },
+  { id: 2, title: '💡 I have an idea', short: 'idea' },
+  { id: 3, title: '🐞 I found a bug', short: 'bug' },
+];
 
 function Feedback() {
-  const [showSubmitted, setShowSubmitted] = useState(false);
-  const [popHeader, setPopHeader] = useState('Feedback Example');
+  const [showForm, setShowForm] = useState(false);
+  const [popHeader, setPopHeader] = useState('What feedback do you have?');
 
-  const toggleSubmitted = () => {
-    setShowSubmitted(true);
-    setPopHeader('😀 General feedback');
+  const toggleForm = (header: string) => {
+    setShowForm(true);
+    setPopHeader(header);
   };
 
   const handleStartOver = () => {
-    setShowSubmitted(false);
-    setPopHeader('Feedback Example');
+    setShowForm(false);
+    setPopHeader('What feedback do you have?');
   };
 
+  const firstFieldRef = useRef(null);
+  const { onOpen, onClose, isOpen } = useDisclosure();
+
   return (
-    <Popover isLazy placement="top-end">
+    <Popover
+      placement="top-end"
+      closeOnBlur={false}
+      initialFocusRef={firstFieldRef}
+      closeOnEsc={false}
+      isOpen={isOpen}
+      onOpen={onOpen}
+      onClose={onClose}
+    >
       <PopoverTrigger>
-        <Button>Feedback</Button>
+        {isOpen ? (
+          <IconButton aria-label="close" icon={<MdClose />} isRound />
+        ) : (
+          <Button leftIcon={<MdOutlineChat />}>Feedback</Button>
+        )}
       </PopoverTrigger>
       <PopoverContent>
-        <PopoverCloseButton color="white" />
-        <PopoverHeader background="black" color="white" fontSize={26}>
+        <PopoverArrow />
+        <PopoverHeader background="black" color="white" fontSize={22}>
           {popHeader}
         </PopoverHeader>
-        {showSubmitted ? (
-          <Submitted onStartOver={handleStartOver} />
+        {showForm ? (
+          // <Submitted onStartOver={handleStartOver} />
+          <Form onBackClick={handleStartOver} />
         ) : (
           <PopoverBody>
-            <Heading as="h2" size="sm" margin={2}>
-              What feedback do you have?
-            </Heading>
             <ButtonGroup
               flexDirection="column"
               alignContent="center"
               variant="ghost"
               spacing={2}
             >
-              <Button onClick={toggleSubmitted}>😀 General feedback</Button>
-              <Button>💡 I have an idea</Button>
-              <Button>🐞 I found a bug</Button>
+              {feedbackOptions.map((option) => (
+                <Button
+                  key={option.id}
+                  onClick={() => toggleForm(option.title)}
+                >
+                  {option.title}
+                </Button>
+              ))}
             </ButtonGroup>
           </PopoverBody>
         )}
