@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
@@ -11,6 +13,7 @@ export default defineConfig({
       assets: resolve(__dirname, 'src/assets'),
       components: resolve(__dirname, 'src/components'),
       hooks: resolve(__dirname, 'src/hooks'),
+      mocks: resolve(__dirname, 'src/mocks'),
       pages: resolve(__dirname, 'src/pages'),
       routes: resolve(__dirname, 'src/routes'),
       types: resolve(__dirname, 'src/types'),
