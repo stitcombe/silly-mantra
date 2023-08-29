@@ -19,22 +19,12 @@ export function Form({
   onSubmit,
 }: {
   onBack: React.MouseEventHandler<HTMLButtonElement>;
-  onSubmit: React.MouseEventHandler<HTMLButtonElement>;
+  onSubmit: () => void;
 }): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [email, setEmail] = useState('');
   const [feedback, setFeedback] = useState('');
-
-  const handleMockSubmit = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-    setTimeout(() => {
-      setIsError(true);
-    }, 3000);
-  };
 
   const handleSubmit = async () => {
     // toggle button to laoding
@@ -46,7 +36,7 @@ export function Form({
         feedback,
       };
       // try feedback submit
-      await axios.post('http://abc.com/api/feedback', data);
+      await axios.post('https://abc.com/api/feedback', data);
       // close popover and show thanks
       onSubmit();
     } catch (err) {

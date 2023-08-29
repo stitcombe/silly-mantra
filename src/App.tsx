@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChakraProvider, Box } from '@chakra-ui/react';
-import Home from './pages/Home';
 import FeedbackPop from 'components/FeedbackPop';
+import Home from 'pages/Home';
 
 function App() {
   return (

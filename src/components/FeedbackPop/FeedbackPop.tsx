@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import {
+  Box,
   Popover,
   PopoverTrigger,
   Button,
@@ -33,7 +34,7 @@ export function FeedbackPop() {
     setPopHeader(header);
   };
 
-  const handleStartOver = () => {
+  const handleBack = () => {
     setShowForm(false);
     setPopHeader('What feedback do you have?');
   };
@@ -41,61 +42,65 @@ export function FeedbackPop() {
   const toggleThanks = () => {
     setShowThanks(true);
     onClose();
-    handleStartOver();
+    handleBack();
     setTimeout(() => {
       setShowThanks(false);
     }, 5000);
   };
 
-  return showThanks ? (
-    // display non-functional thanks button after form submit
-    <Button leftIcon={<FiThumbsUp />}>Thanks!</Button>
-  ) : (
-    // main popover
-    <Popover
-      placement="top-end"
-      closeOnBlur={false}
-      initialFocusRef={firstFieldRef}
-      closeOnEsc={false}
-      isOpen={isOpen}
-      onOpen={onOpen}
-      onClose={onClose}
-    >
-      <PopoverTrigger>
-        {/* toggle to close button when popover is opened */}
-        {isOpen ? (
-          <IconButton aria-label="close" icon={<MdClose />} isRound />
-        ) : (
-          <Button leftIcon={<MdOutlineChat />}>Feedback</Button>
-        )}
-      </PopoverTrigger>
-      <PopoverContent>
-        <PopoverArrow />
-        <PopoverHeader background="black" color="white" fontSize={22}>
-          {popHeader}
-        </PopoverHeader>
-        {showForm ? (
-          <Form onBack={handleStartOver} onSubmit={toggleThanks} />
-        ) : (
-          <PopoverBody>
-            <ButtonGroup
-              flexDirection="column"
-              alignContent="center"
-              variant="ghost"
-              spacing={2}
-            >
-              {feedbackOptions.map((option) => (
-                <Button
-                  key={option.title}
-                  onClick={() => toggleForm(option.title)}
+  return (
+    <Box position="fixed" zIndex={1000} bottom={0} right={0} m="2rem">
+      {showThanks ? (
+        // display non-functional thanks button after form submit
+        <Button leftIcon={<FiThumbsUp />}>Thanks!</Button>
+      ) : (
+        // main popover
+        <Popover
+          placement="top-end"
+          closeOnBlur={false}
+          initialFocusRef={firstFieldRef}
+          closeOnEsc={false}
+          isOpen={isOpen}
+          onOpen={onOpen}
+          onClose={onClose}
+        >
+          <PopoverTrigger>
+            {/* toggle to close button when popover is opened */}
+            {isOpen ? (
+              <IconButton aria-label="close" icon={<MdClose />} isRound />
+            ) : (
+              <Button leftIcon={<MdOutlineChat />}>Feedback</Button>
+            )}
+          </PopoverTrigger>
+          <PopoverContent>
+            <PopoverArrow />
+            <PopoverHeader background="black" color="white" fontSize={22}>
+              {popHeader}
+            </PopoverHeader>
+            {showForm ? (
+              <Form onBack={handleBack} onSubmit={toggleThanks} />
+            ) : (
+              <PopoverBody>
+                <ButtonGroup
+                  flexDirection="column"
+                  alignContent="center"
+                  variant="ghost"
+                  spacing={2}
                 >
-                  {option.title}
-                </Button>
-              ))}
-            </ButtonGroup>
-          </PopoverBody>
-        )}
-      </PopoverContent>
-    </Popover>
+                  {feedbackOptions.map((option) => (
+                    <Button
+                      key={option.title}
+                      onClick={() => toggleForm(option.title)}
+                    >
+                      {option.title}
+                    </Button>
+                  ))}
+                </ButtonGroup>
+              </PopoverBody>
+            )}
+          </PopoverContent>
+        </Popover>
+      )}
+    </Box>
   );
 }
