@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { MdOutlineChat, MdClose } from 'react-icons/md';
 import { FiThumbsUp } from 'react-icons/fi';
-import Form from './Feedback/Form';
+import { Form } from 'components/FeedbackPop/Form';
 
 const feedbackOptions = [
   { title: '😀 General feedback', short: 'feedback' },
@@ -21,7 +21,7 @@ const feedbackOptions = [
   { title: '🐞 I found a bug', short: 'bug' },
 ];
 
-function Feedback() {
+export function FeedbackPop() {
   const [showForm, setShowForm] = useState(false);
   const [popHeader, setPopHeader] = useState('What feedback do you have?');
   const [showThanks, setShowThanks] = useState(false);
@@ -99,4 +99,3 @@ function Feedback() {
     </Popover>
   );
 }
-export default Feedback;

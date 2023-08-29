@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import FocusLock from 'react-focus-lock';
 
-export default function Form({
+export function Form({
   onBack,
   onSubmit,
 }: {
