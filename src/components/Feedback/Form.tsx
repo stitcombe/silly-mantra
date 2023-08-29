@@ -13,11 +13,11 @@ import FocusLock from 'react-focus-lock';
 
 export default function Form({
   onBackClick,
+  onSubmit,
 }: {
   onBackClick: React.MouseEventHandler<HTMLButtonElement>;
+  onSubmit: React.MouseEventHandler<HTMLButtonElement>;
 }): JSX.Element {
-  const handleSubmit = () => {};
-
   return (
     <FocusLock returnFocus persistentFocus={false}>
       <PopoverBody>
@@ -32,7 +32,7 @@ export default function Form({
         <Flex>
           <Button onClick={onBackClick}>Back</Button>
           <Spacer />
-          <Button onClick={handleSubmit} colorScheme="teal" isDisabled>
+          <Button onClick={onSubmit} colorScheme="teal">
             Submit
           </Button>
         </Flex>

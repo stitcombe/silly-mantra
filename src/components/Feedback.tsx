@@ -15,14 +15,15 @@ import { MdOutlineChat, MdClose } from 'react-icons/md';
 import Form from './Feedback/Form';
 
 const feedbackOptions = [
-  { id: 1, title: '😀 General feedback', short: 'feedback' },
-  { id: 2, title: '💡 I have an idea', short: 'idea' },
-  { id: 3, title: '🐞 I found a bug', short: 'bug' },
+  { title: '😀 General feedback', short: 'feedback' },
+  { title: '💡 I have an idea', short: 'idea' },
+  { title: '🐞 I found a bug', short: 'bug' },
 ];
 
 function Feedback() {
   const [showForm, setShowForm] = useState(false);
   const [popHeader, setPopHeader] = useState('What feedback do you have?');
+  const [showThanks, setShowThanks] = useState(false);
 
   const toggleForm = (header: string) => {
     setShowForm(true);
@@ -34,10 +35,21 @@ function Feedback() {
     setPopHeader('What feedback do you have?');
   };
 
+  const toggleThanks = () => {
+    setShowThanks(true);
+    setTimeout(() => {
+      setShowThanks(false);
+    }, 5000);
+  };
+
   const firstFieldRef = useRef(null);
   const { onOpen, onClose, isOpen } = useDisclosure();
 
-  return (
+  return showThanks ? (
+    // display non-functional thanks button after form submit
+    <Button leftIcon={<MdOutlineChat />}>Thanks!</Button>
+  ) : (
+    // main popover
     <Popover
       placement="top-end"
       closeOnBlur={false}
@@ -48,6 +60,7 @@ function Feedback() {
       onClose={onClose}
     >
       <PopoverTrigger>
+        {/* toggle to close button when popover is opened */}
         {isOpen ? (
           <IconButton aria-label="close" icon={<MdClose />} isRound />
         ) : (
@@ -60,8 +73,7 @@ function Feedback() {
           {popHeader}
         </PopoverHeader>
         {showForm ? (
-          // <Submitted onStartOver={handleStartOver} />
-          <Form onBackClick={handleStartOver} />
+          <Form onBackClick={handleStartOver} onSubmit={toggleThanks} />
         ) : (
           <PopoverBody>
             <ButtonGroup
@@ -72,7 +84,7 @@ function Feedback() {
             >
               {feedbackOptions.map((option) => (
                 <Button
-                  key={option.id}
+                  key={option.title}
                   onClick={() => toggleForm(option.title)}
                 >
                   {option.title}
@@ -85,5 +97,4 @@ function Feedback() {
     </Popover>
   );
 }
-
 export default Feedback;
