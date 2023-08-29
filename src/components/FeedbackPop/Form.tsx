@@ -8,6 +8,8 @@ import {
   Flex,
   Spacer,
   FormControl,
+  Alert,
+  AlertIcon,
 } from '@chakra-ui/react';
 import FocusLock from 'react-focus-lock';
 
@@ -19,14 +21,23 @@ export function Form({
   onSubmit: React.MouseEventHandler<HTMLButtonElement>;
 }): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const handleSubmit = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
     setTimeout(() => {
-      onSubmit();
+      setIsError(true);
     }, 3000);
+  };
+
+  const handleSubmit2 = () => {
+    setIsLoading(true);
+    try {
+    } catch (err) {
+      toast;
+    }
   };
 
   return (
@@ -40,6 +51,12 @@ export function Form({
             <Textarea placeholder="Enter your feedback" />
           </FormControl>
         </VStack>
+        {isError ? (
+          <Alert status="error" mb={3}>
+            <AlertIcon />
+            Oops! There was an error submitting your feedback
+          </Alert>
+        ) : null}
         <Flex>
           <Button onClick={onBack}>Back</Button>
           <Spacer />
