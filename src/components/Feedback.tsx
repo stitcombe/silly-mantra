@@ -12,6 +12,7 @@ import {
   PopoverArrow,
 } from '@chakra-ui/react';
 import { MdOutlineChat, MdClose } from 'react-icons/md';
+import { FiThumbsUp } from 'react-icons/fi';
 import Form from './Feedback/Form';
 
 const feedbackOptions = [
@@ -24,6 +25,8 @@ function Feedback() {
   const [showForm, setShowForm] = useState(false);
   const [popHeader, setPopHeader] = useState('What feedback do you have?');
   const [showThanks, setShowThanks] = useState(false);
+  const firstFieldRef = useRef(null);
+  const { onOpen, onClose, isOpen } = useDisclosure();
 
   const toggleForm = (header: string) => {
     setShowForm(true);
@@ -37,17 +40,16 @@ function Feedback() {
 
   const toggleThanks = () => {
     setShowThanks(true);
+    onClose();
+    handleStartOver();
     setTimeout(() => {
       setShowThanks(false);
     }, 5000);
   };
 
-  const firstFieldRef = useRef(null);
-  const { onOpen, onClose, isOpen } = useDisclosure();
-
   return showThanks ? (
     // display non-functional thanks button after form submit
-    <Button leftIcon={<MdOutlineChat />}>Thanks!</Button>
+    <Button leftIcon={<FiThumbsUp />}>Thanks!</Button>
   ) : (
     // main popover
     <Popover
