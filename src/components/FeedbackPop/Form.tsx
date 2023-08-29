@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Button,
   PopoverBody,
@@ -18,6 +18,17 @@ export function Form({
   onBack: React.MouseEventHandler<HTMLButtonElement>;
   onSubmit: React.MouseEventHandler<HTMLButtonElement>;
 }): JSX.Element {
+  const [isLoading, setIsLoading] = useState(false);
+  const handleSubmit = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+    setTimeout(() => {
+      onSubmit();
+    }, 3000);
+  };
+
   return (
     <FocusLock returnFocus persistentFocus={false}>
       <PopoverBody>
@@ -32,7 +43,11 @@ export function Form({
         <Flex>
           <Button onClick={onBack}>Back</Button>
           <Spacer />
-          <Button onClick={onSubmit} colorScheme="teal">
+          <Button
+            onClick={handleSubmit}
+            isLoading={isLoading}
+            colorScheme="teal"
+          >
             Submit
           </Button>
         </Flex>
