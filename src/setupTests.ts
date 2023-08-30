@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import '@testing-library/jest-dom';
-import { afterEach, expect } from 'vitest';
+import { afterEach } from 'vitest';
 // import matchers from '@testing-library/jest-dom/matchers';
 import { cleanup } from '@testing-library/react';
 
