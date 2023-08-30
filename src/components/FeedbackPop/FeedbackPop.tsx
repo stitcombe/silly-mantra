@@ -16,7 +16,7 @@ import { MdOutlineChat, MdClose } from 'react-icons/md';
 import { FiThumbsUp } from 'react-icons/fi';
 import { Form } from 'components/FeedbackPop/Form';
 
-const feedbackOptions = [
+const feedbackTypes = [
   { title: '😀 General feedback', short: 'feedback' },
   { title: '💡 I have an idea', short: 'idea' },
   { title: '🐞 I found a bug', short: 'bug' },
@@ -25,13 +25,15 @@ const feedbackOptions = [
 export function FeedbackPop() {
   const [showForm, setShowForm] = useState(false);
   const [popHeader, setPopHeader] = useState('What feedback do you have?');
+  const [type, setType] = useState('');
   const [showThanks, setShowThanks] = useState(false);
   const firstFieldRef = useRef(null);
   const { onOpen, onClose, isOpen } = useDisclosure();
 
-  const toggleForm = (header: string) => {
+  const toggleForm = (header: string, fType: string) => {
     setShowForm(true);
     setPopHeader(header);
+    setType(fType);
   };
 
   const handleBack = () => {
@@ -40,9 +42,9 @@ export function FeedbackPop() {
   };
 
   const toggleThanks = () => {
-    setShowThanks(true);
     onClose();
     handleBack();
+    setShowThanks(true);
     setTimeout(() => {
       setShowThanks(false);
     }, 5000);
@@ -52,7 +54,9 @@ export function FeedbackPop() {
     <Box position="fixed" zIndex={1000} bottom={0} right={0} m="2rem">
       {showThanks ? (
         // display non-functional thanks button after form submit
-        <Button leftIcon={<FiThumbsUp />}>Thanks!</Button>
+        <Button shadow="md" leftIcon={<FiThumbsUp />}>
+          Thanks!
+        </Button>
       ) : (
         // main popover
         <Popover
@@ -67,9 +71,16 @@ export function FeedbackPop() {
           <PopoverTrigger>
             {/* toggle to close button when popover is opened */}
             {isOpen ? (
-              <IconButton aria-label="close" icon={<MdClose />} isRound />
+              <IconButton
+                aria-label="close"
+                icon={<MdClose />}
+                isRound
+                shadow="md"
+              />
             ) : (
-              <Button leftIcon={<MdOutlineChat />}>Feedback</Button>
+              <Button shadow="md" leftIcon={<MdOutlineChat />}>
+                Feedback
+              </Button>
             )}
           </PopoverTrigger>
           <PopoverContent>
@@ -78,7 +89,11 @@ export function FeedbackPop() {
               {popHeader}
             </PopoverHeader>
             {showForm ? (
-              <Form onBack={handleBack} onSubmit={toggleThanks} />
+              <Form
+                feedbackType={type}
+                onBack={handleBack}
+                onSubmit={toggleThanks}
+              />
             ) : (
               <PopoverBody>
                 <ButtonGroup
@@ -87,10 +102,10 @@ export function FeedbackPop() {
                   variant="ghost"
                   spacing={2}
                 >
-                  {feedbackOptions.map((option) => (
+                  {feedbackTypes.map((option) => (
                     <Button
                       key={option.title}
-                      onClick={() => toggleForm(option.title)}
+                      onClick={() => toggleForm(option.title, option.short)}
                     >
                       {option.title}
                     </Button>

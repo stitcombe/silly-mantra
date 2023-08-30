@@ -15,9 +15,11 @@ import FocusLock from 'react-focus-lock';
 import axios from 'axios';
 
 export function Form({
+  feedbackType,
   onBack,
   onSubmit,
 }: {
+  feedbackType: string;
   onBack: React.MouseEventHandler<HTMLButtonElement>;
   onSubmit: () => void;
 }): JSX.Element {
@@ -33,7 +35,11 @@ export function Form({
       // prepare data to send
       const data = {
         email,
+        feedbackType,
         feedback,
+        browser: navigator.userAgent,
+        url: window.location.href,
+        timestamp: new Date().toISOString(),
       };
       // try feedback submit
       await axios.post('https://abc.com/api/feedback', data);

@@ -1,5 +1,4 @@
-/* eslint-disable */
-
+/// <reference types="vitest" />
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
@@ -19,5 +18,10 @@ export default defineConfig({
       types: resolve(__dirname, 'src/types'),
       utils: resolve(__dirname, 'src/utils'),
     },
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: 'src/setupTests.ts',
   },
 });
