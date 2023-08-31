@@ -9,6 +9,7 @@ import {
   Text,
   Code,
   keyframes,
+  Switch,
 } from '@chakra-ui/react';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
@@ -19,8 +20,9 @@ const spin = keyframes`
   to {transform: rotate(360deg)}
 `;
 
-function Home() {
+function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
   const spinAnimation = `${spin} infinite 20s linear`;
+
   return (
     <Box>
       <HStack spacing={4} alignContent="center">
@@ -75,29 +77,7 @@ function Home() {
         Edit <Code>src/App.tsx</Code> and save to test HMR
       </Text>
       <Text color="#888">Click on the Vite and React logos to learn more</Text>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
+      <Switch onChange={toggleFeedback}>Toggle Feedback</Switch>
     </Box>
   );
 }
