@@ -15,6 +15,7 @@ import {
 import { MdOutlineChat, MdClose } from 'react-icons/md';
 import { FiThumbsUp } from 'react-icons/fi';
 import { Form } from 'components/FeedbackPop/Form';
+import confetti from 'canvas-confetti';
 
 const feedbackTypes = [
   { title: '😀 General feedback', short: 'feedback' },
@@ -45,9 +46,15 @@ export function FeedbackPop() {
     onClose();
     handleBack();
     setShowThanks(true);
+    confetti({
+      origin: {
+        x: 0.92,
+        y: 1,
+      },
+    });
     setTimeout(() => {
       setShowThanks(false);
-    }, 5000);
+    }, 4000);
   };
 
   return (
