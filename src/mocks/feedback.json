@@ -1,0 +1,454 @@
+{
+  "data": [
+    {
+      "email": "user1@example.com",
+      "feedback": "Great app! Easy to use and very helpful.",
+      "feedbackType": "Positive",
+      "browser": "Chrome",
+      "url": "https://example.com/page1",
+      "timestamp": "2023-09-01T10:15:30Z",
+      "appVers": "2.0"
+    },
+    {
+      "email": "user2@example.com",
+      "feedback": "I encountered a bug on the login screen.",
+      "feedbackType": "Bug Report",
+      "browser": "Firefox",
+      "url": "https://example.com/login",
+      "timestamp": "2023-09-02T14:22:45Z",
+      "appVers": "1.5"
+    },
+    {
+      "email": "user3@example.com",
+      "feedback": "The app keeps crashing on my Android device.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-09-03T18:50:12Z",
+      "appVers": "3.1"
+    },
+    {
+      "email": "user4@example.com",
+      "feedback": "I love the new features in the latest update!",
+      "feedbackType": "Positive",
+      "browser": "Safari",
+      "url": "https://example.com/news",
+      "timestamp": "2023-09-04T09:30:00Z",
+      "appVers": "4.0"
+    },
+    {
+      "email": "user5@example.com",
+      "feedback": "The user interface needs improvement.",
+      "feedbackType": "Constructive",
+      "browser": "Edge",
+      "url": "https://example.com/home",
+      "timestamp": "2023-09-05T16:05:20Z",
+      "appVers": "2.5"
+    },
+    {
+      "email": "user6@example.com",
+      "feedback": "I can't find the search feature. Is it hidden?",
+      "feedbackType": "Question",
+      "browser": "Chrome",
+      "url": "https://example.com/help",
+      "timestamp": "2023-09-06T11:12:30Z",
+      "appVers": "3.2"
+    },
+    {
+      "email": "user7@example.com",
+      "feedback": "This app is a lifesaver!",
+      "feedbackType": "Positive",
+      "browser": "Firefox",
+      "url": "https://example.com/saved",
+      "timestamp": "2023-09-07T19:55:40Z",
+      "appVers": "2.0"
+    },
+    {
+      "email": "user8@example.com",
+      "feedback": "The app's performance has degraded recently.",
+      "feedbackType": "Bug Report",
+      "browser": "Safari",
+      "url": "https://example.com/performance",
+      "timestamp": "2023-09-08T08:40:15Z",
+      "appVers": "3.0"
+    },
+    {
+      "email": "user9@example.com",
+      "feedback": "I found a spelling error in the app's description.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-09-09T13:27:55Z",
+      "appVers": "1.0"
+    },
+    {
+      "email": "user10@example.com",
+      "feedback": "The app crashed when I tried to upload a large file.",
+      "feedbackType": "Bug Report",
+      "browser": "Edge",
+      "url": "https://example.com/upload",
+      "timestamp": "2023-09-10T17:18:10Z",
+      "appVers": "2.3"
+    },
+    {
+      "email": "user11@example.com",
+      "feedback": "The app is so slow on my old iPhone.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-09-11T22:09:25Z",
+      "appVers": "4.2"
+    },
+    {
+      "email": "user12@example.com",
+      "feedback": "I'm unable to make in-app purchases.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-09-12T14:14:30Z",
+      "appVers": "1.2"
+    },
+    {
+      "email": "user13@example.com",
+      "feedback": "The app's design is outdated.",
+      "feedbackType": "Constructive",
+      "browser": "Chrome",
+      "url": "https://example.com/design",
+      "timestamp": "2023-09-13T09:45:50Z",
+      "appVers": "3.5"
+    },
+    {
+      "email": "user14@example.com",
+      "feedback": "I can't log in with my Google account.",
+      "feedbackType": "Bug Report",
+      "browser": "Safari",
+      "url": "https://example.com/google",
+      "timestamp": "2023-09-14T16:30:00Z",
+      "appVers": "2.1"
+    },
+    {
+      "email": "user15@example.com",
+      "feedback": "The app's customer support is fantastic!",
+      "feedbackType": "Positive",
+      "browser": "Firefox",
+      "url": "N/A",
+      "timestamp": "2023-09-15T12:20:15Z",
+      "appVers": "4.5"
+    },
+    {
+      "email": "user16@example.com",
+      "feedback": "The app frequently freezes on my Mac.",
+      "feedbackType": "Bug Report",
+      "browser": "Edge",
+      "url": "https://example.com/mac",
+      "timestamp": "2023-09-16T07:11:30Z",
+      "appVers": "2.0"
+    },
+    {
+      "email": "user17@example.com",
+      "feedback": "I love the new dark mode feature!",
+      "feedbackType": "Positive",
+      "browser": "Safari",
+      "url": "https://example.com/darkmode",
+      "timestamp": "2023-09-17T18:45:20Z",
+      "appVers": "3.8"
+    },
+    {
+      "email": "user18@example.com",
+      "feedback": "The app crashes when I try to open the settings.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-09-18T09:35:55Z",
+      "appVers": "2.2"
+    },
+    {
+      "email": "user19@example.com",
+      "feedback": "The app's user interface is confusing.",
+      "feedbackType": "Constructive",
+      "browser": "Chrome",
+      "url": "https://example.com/ui",
+      "timestamp": "2023-09-19T14:28:10Z",
+      "appVers": "4.0"
+    },
+    {
+      "email": "user20@example.com",
+      "feedback": "I can't play videos in the app.",
+      "feedbackType": "Bug Report",
+      "browser": "Safari",
+      "url": "https://example.com/videos",
+      "timestamp": "2023-09-20T19:20:45Z",
+      "appVers": "2.4"
+    },
+    {
+      "email": "user21@example.com",
+      "feedback": "The app crashes when I try to print documents.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-09-21T11:15:30Z",
+      "appVers": "3.3"
+    },
+    {
+      "email": "user22@example.com",
+      "feedback": "I accidentally deleted my important files with this app.",
+      "feedbackType": "Bug Report",
+      "browser": "Edge",
+      "url": "https://example.com/files",
+      "timestamp": "2023-09-22T17:10:50Z",
+      "appVers": "1.8"
+    },
+    {
+      "email": "user23@example.com",
+      "feedback": "The app's search feature is not working properly.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-09-23T14:05:15Z",
+      "appVers": "2.6"
+    },
+    {
+      "email": "user24@example.com",
+      "feedback": "I'm having trouble with the app's accessibility features.",
+      "feedbackType": "Bug Report",
+      "browser": "Chrome",
+      "url": "https://example.com/accessibility",
+      "timestamp": "2023-09-24T09:55:30Z",
+      "appVers": "4.1"
+    },
+    {
+      "email": "user25@example.com",
+      "feedback": "The app's performance has improved significantly!",
+      "feedbackType": "Positive",
+      "browser": "Firefox",
+      "url": "N/A",
+      "timestamp": "2023-09-25T18:40:40Z",
+      "appVers": "3.0"
+    },
+    {
+      "email": "user26@example.com",
+      "feedback": "I can't change my profile picture in the app.",
+      "feedbackType": "Bug Report",
+      "browser": "Edge",
+      "url": "https://example.com/profile",
+      "timestamp": "2023-09-26T12:33:05Z",
+      "appVers": "2.0"
+    },
+    {
+      "email": "user27@example.com",
+      "feedback": "The app frequently crashes on my iPad.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-09-27T07:25:20Z",
+      "appVers": "4.3"
+    },
+    {
+      "email": "user28@example.com",
+      "feedback": "I'm unable to update the app to the latest version.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-09-28T16:18:35Z",
+      "appVers": "1.7"
+    },
+    {
+      "email": "user29@example.com",
+      "feedback": "The app's notifications are too intrusive.",
+      "feedbackType": "Constructive",
+      "browser": "Chrome",
+      "url": "https://example.com/notifications",
+      "timestamp": "2023-09-29T11:11:50Z",
+      "appVers": "3.7"
+    },
+    {
+      "email": "user30@example.com",
+      "feedback": "I accidentally deleted my account. Can it be recovered?",
+      "feedbackType": "Question",
+      "browser": "Safari",
+      "url": "N/A",
+      "timestamp": "2023-09-30T19:05:00Z",
+      "appVers": "2.9"
+    },
+    {
+      "email": "user31@example.com",
+      "feedback": "The app's login process is confusing.",
+      "feedbackType": "Constructive",
+      "browser": "Edge",
+      "url": "https://example.com/login",
+      "timestamp": "2023-10-01T13:00:25Z",
+      "appVers": "4.0"
+    },
+    {
+      "email": "user32@example.com",
+      "feedback": "I can't access my account after the latest update.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-10-02T09:50:40Z",
+      "appVers": "2.5"
+    },
+    {
+      "email": "user33@example.com",
+      "feedback": "The app's design is visually appealing.",
+      "feedbackType": "Positive",
+      "browser": "Chrome",
+      "url": "https://example.com/design",
+      "timestamp": "2023-10-03T18:45:55Z",
+      "appVers": "3.6"
+    },
+    {
+      "email": "user34@example.com",
+      "feedback": "I encountered a security issue in the app.",
+      "feedbackType": "Bug Report",
+      "browser": "Safari",
+      "url": "https://example.com/security",
+      "timestamp": "2023-10-04T12:35:10Z",
+      "appVers": "2.3"
+    },
+    {
+      "email": "user35@example.com",
+      "feedback": "The app's customer support is unresponsive.",
+      "feedbackType": "Negative",
+      "browser": "Firefox",
+      "url": "N/A",
+      "timestamp": "2023-10-05T19:30:30Z",
+      "appVers": "4.0"
+    },
+    {
+      "email": "user36@example.com",
+      "feedback": "I love the app's new dark theme!",
+      "feedbackType": "Positive",
+      "browser": "Edge",
+      "url": "https://example.com/darktheme",
+      "timestamp": "2023-10-06T14:25:45Z",
+      "appVers": "2.2"
+    },
+    {
+      "email": "user37@example.com",
+      "feedback": "The app crashes when I try to use the camera.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-10-07T08:20:00Z",
+      "appVers": "3.4"
+    },
+    {
+      "email": "user38@example.com",
+      "feedback": "The app's performance is excellent on my new smartphone!",
+      "feedbackType": "Positive",
+      "browser": "Chrome",
+      "url": "N/A",
+      "timestamp": "2023-10-08T17:15:20Z",
+      "appVers": "4.2"
+    },
+    {
+      "email": "user39@example.com",
+      "feedback": "I'm having trouble with the app's language settings.",
+      "feedbackType": "Bug Report",
+      "browser": "Safari",
+      "url": "https://example.com/language",
+      "timestamp": "2023-10-09T12:10:35Z",
+      "appVers": "2.7"
+    },
+    {
+      "email": "user40@example.com",
+      "feedback": "The app crashes when I try to open PDF files.",
+      "feedbackType": "Bug Report",
+      "browser": "Edge",
+      "url": "https://example.com/pdf",
+      "timestamp": "2023-10-10T19:05:50Z",
+      "appVers": "2.1"
+    },
+    {
+      "email": "user41@example.com",
+      "feedback": "The app's user interface is intuitive and user-friendly.",
+      "feedbackType": "Positive",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-10-11T14:00:05Z",
+      "appVers": "3.9"
+    },
+    {
+      "email": "user42@example.com",
+      "feedback": "I can't find the logout option in the app.",
+      "feedbackType": "Bug Report",
+      "browser": "Chrome",
+      "url": "https://example.com/logout",
+      "timestamp": "2023-10-12T08:55:20Z",
+      "appVers": "2.6"
+    },
+    {
+      "email": "user43@example.com",
+      "feedback": "The app frequently crashes when I edit documents.",
+      "feedbackType": "Bug Report",
+      "browser": "Safari",
+      "url": "https://example.com/edit",
+      "timestamp": "2023-10-13T17:50:40Z",
+      "appVers": "4.0"
+    },
+    {
+      "email": "user44@example.com",
+      "feedback": "I accidentally deleted a note. Can it be recovered?",
+      "feedbackType": "Question",
+      "browser": "Edge",
+      "url": "N/A",
+      "timestamp": "2023-10-14T12:45:55Z",
+      "appVers": "2.3"
+    },
+    {
+      "email": "user45@example.com",
+      "feedback": "The app's design is outdated and needs a refresh.",
+      "feedbackType": "Constructive",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-10-15T07:40:10Z",
+      "appVers": "3.0"
+    },
+    {
+      "email": "user46@example.com",
+      "feedback": "I'm unable to change my password in the app.",
+      "feedbackType": "Bug Report",
+      "browser": "Chrome",
+      "url": "https://example.com/password",
+      "timestamp": "2023-10-16T16:35:30Z",
+      "appVers": "2.0"
+    },
+    {
+      "email": "user47@example.com",
+      "feedback": "The app's performance has degraded on my tablet.",
+      "feedbackType": "Bug Report",
+      "browser": "N/A",
+      "url": "N/A",
+      "timestamp": "2023-10-17T11:30:45Z",
+      "appVers": "4.1"
+    },
+    {
+      "email": "user48@example.com",
+      "feedback": "I found a typo in the app's tutorial.",
+      "feedbackType": "Bug Report",
+      "browser": "Safari",
+      "url": "https://example.com/tutorial",
+      "timestamp": "2023-10-18T19:25:05Z",
+      "appVers": "2.5"
+    },
+    {
+      "email": "user49@example.com",
+      "feedback": "The app's customer support is responsive and helpful.",
+      "feedbackType": "Positive",
+      "browser": "Firefox",
+      "url": "N/A",
+      "timestamp": "2023-10-19T14:20:20Z",
+      "appVers": "3.0"
+    },
+    {
+      "email": "user50@example.com",
+      "feedback": "I can't access the app on my new smartphone.",
+      "feedbackType": "Bug Report",
+      "browser": "Edge",
+      "url": "N/A",
+      "timestamp": "2023-10-20T08:15:35Z",
+      "appVers": "2.8"
+    }
+  ]
+}

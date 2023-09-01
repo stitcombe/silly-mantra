@@ -14,6 +14,7 @@ import {
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
 import '../App.css';
+import ScrollToTopButton from 'components/ScrollToTopButton/ScrollToTopButton';
 
 const spin = keyframes`
   from {transform: rotate(0deg);}
@@ -78,6 +79,34 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
       </Text>
       <Text color="#888">Click on the Vite and React logos to learn more</Text>
       <Switch onChange={toggleFeedback}>Toggle Feedback</Switch>
+      <ScrollToTopButton />
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
     </Box>
   );
 }
