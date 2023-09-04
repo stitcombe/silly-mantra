@@ -11,10 +11,10 @@ import {
   keyframes,
   Switch,
 } from '@chakra-ui/react';
+import ScrollToTopButton from 'components/ScrollToTopButton';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
 import '../App.css';
-import ScrollToTopButton from 'components/ScrollToTopButton/ScrollToTopButton';
 
 const spin = keyframes`
   from {transform: rotate(0deg);}

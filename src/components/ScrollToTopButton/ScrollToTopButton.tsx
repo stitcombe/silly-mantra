@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IconButton } from '@chakra-ui/react';
 import { FaArrowUp } from 'react-icons/fa';
 
-export default function ScrollToTopButton(): JSX.Element {
+export function ScrollToTopButton(): JSX.Element {
   const [showButton, setShowButton] = useState<boolean>(false);
 
   useEffect(() => {
