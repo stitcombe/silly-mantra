@@ -15,6 +15,7 @@ export default defineConfig({
       assets: resolve(__dirname, 'src/assets'),
       components: resolve(__dirname, 'src/components'),
       hooks: resolve(__dirname, 'src/hooks'),
+      layout: resolve(__dirname, 'src/layout'),
       mocks: resolve(__dirname, 'src/mocks'),
       pages: resolve(__dirname, 'src/pages'),
       routes: resolve(__dirname, 'src/routes'),
