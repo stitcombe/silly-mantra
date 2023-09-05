@@ -55,7 +55,7 @@ export default function Header(): JSX.Element {
           {/* Icon + Site Name */}
           <Flex mr={3} alignItems="center" cursor="pointer">
             <SiteIcon />
-            <Heading as="h4" size="16px" mr={3} ml={2} fontWeight="500">
+            <Heading as="h4" size="sm" mr={3} ml={2} fontWeight="600">
               GitHub Docs
             </Heading>
           </Flex>
@@ -96,11 +96,18 @@ export default function Header(): JSX.Element {
             variant="outline"
           />
           <Box pl={3} display={{ base: 'block', sm: 'none' }}>
-            <IconButton
-              aria-label="more menu"
-              icon={<FiMoreHorizontal />}
-              variant="outline"
-            />
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                aria-label="more menu"
+                icon={<FiMoreHorizontal />}
+                variant="outline"
+              />
+              <MenuList>
+                <MenuItem>Test 1</MenuItem>
+                <MenuItem>Test 2</MenuItem>
+              </MenuList>
+            </Menu>
           </Box>
         </Flex>
       </Flex>

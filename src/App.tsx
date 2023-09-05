@@ -13,7 +13,7 @@ function App() {
 
   return (
     <ChakraProvider>
-      <Box maxWidth="1280px" width="100vw" minWidth="285px">
+      <Box width="100vw" minWidth="20em">
         <Header />
         <Home toggleFeedback={setFeedback} />
         {showFeedback ? <FeedbackPop /> : null}

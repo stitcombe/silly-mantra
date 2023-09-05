@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IconButton } from '@chakra-ui/react';
+import { IconButton, Tooltip } from '@chakra-ui/react';
 import { FaArrowUp } from 'react-icons/fa';
 
 export function ScrollToTopButton(): JSX.Element {
@@ -31,23 +31,32 @@ export function ScrollToTopButton(): JSX.Element {
   };
 
   return (
-    <IconButton
-      aria-label="scroll to top"
-      icon={<FaArrowUp />}
-      isRound
-      shadow="md"
-      style={{
-        opacity: showButton ? 1 : 0,
-        transition: 'opacity 0.3s ease-in-out',
-      }}
-      position="fixed"
-      bottom={6}
-      right={6}
-      zIndex={9999}
-      onClick={scrollToTop}
-      bg="blue.500"
-      color="white"
-      _hover={{ bg: 'blue.600' }}
-    />
+    <Tooltip
+      hasArrow
+      label="Scroll to top"
+      placement="top"
+      transition="opacity 0.3s ease-in-out"
+      isDisabled={!showButton}
+    >
+      <IconButton
+        aria-label="scroll to top"
+        icon={<FaArrowUp />}
+        isRound
+        shadow="md"
+        transition="opacity 0.3s ease-in-out"
+        opacity={showButton ? 1 : 0}
+        position="fixed"
+        bottom={0}
+        mb={4}
+        right={0}
+        mr={4}
+        zIndex={1}
+        onClick={scrollToTop}
+        bg="blue.500"
+        color="white"
+        _hover={{ bg: 'blue.600' }}
+        role="tooltip"
+      />
+    </Tooltip>
   );
 }
