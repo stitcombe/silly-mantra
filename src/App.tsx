@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ChakraProvider, Box } from '@chakra-ui/react';
 import FeedbackPop from 'components/FeedbackPop';
 import Home from 'pages/Home';
-import Header from 'layout/header';
+import Header from 'layout/Header';
 import { Hero } from 'pages/Hero';
 
 function App() {
