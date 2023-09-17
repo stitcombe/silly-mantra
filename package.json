@@ -23,7 +23,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@types/node": "^20.5.9",
-    "@vitest/ui": "^0.34.3",
+    "@vitest/ui": "^0.34.4",
     "axios": "^1.5.0",
     "canvas-confetti": "^1.6.0",
     "framer-motion": "^10.16.2",
