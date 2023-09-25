@@ -22,7 +22,7 @@
     "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@types/node": "^20.6.2",
+    "@types/node": "^20.6.5",
     "@vitest/ui": "^0.34.4",
     "axios": "^1.5.0",
     "canvas-confetti": "^1.6.0",
