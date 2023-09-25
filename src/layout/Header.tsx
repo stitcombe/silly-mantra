@@ -43,7 +43,7 @@ export default function Header(): JSX.Element {
       role="banner"
       p="8px"
       borderBottomStyle="solid"
-      borderBottomWidth="1px"
+      borderBottomWidth="2px"
       position="sticky"
       zIndex={1}
       padding="8px"

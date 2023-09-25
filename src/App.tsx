@@ -3,7 +3,8 @@ import { ChakraProvider, Box } from '@chakra-ui/react';
 import FeedbackPop from 'components/FeedbackPop';
 import Home from 'pages/Home';
 import Header from 'layout/Header';
-import { Hero } from 'pages/Hero';
+import { Hero } from 'pages/Landing/Hero';
+import ArticlesCard from 'pages/Landing/ArticlesCard';
 
 function App() {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -17,6 +18,7 @@ function App() {
       <Box width="100vw" minWidth="20em">
         <Header />
         <Hero />
+        <ArticlesCard />
         <Home toggleFeedback={setFeedback} />
         {showFeedback ? <FeedbackPop /> : null}
       </Box>
