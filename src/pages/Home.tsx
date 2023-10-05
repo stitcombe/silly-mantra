@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  Flex,
   HStack,
   Heading,
   Image,
@@ -10,7 +11,20 @@ import {
   Code,
   keyframes,
   Switch,
+  Avatar,
+  Tooltip,
+  Icon,
+  Tag,
+  Spacer,
+  TagLeftIcon,
+  TagLabel,
 } from '@chakra-ui/react';
+import { AiFillCaretDown } from 'react-icons/ai';
+import { BiTimeFive, BiGitBranch } from 'react-icons/bi';
+import { VscFeedback } from 'react-icons/vsc';
+import { IoMdBrowsers } from 'react-icons/io';
+import { MdOutlineWhereToVote } from 'react-icons/md';
+import feedbackData from 'mocks/feedback';
 import ScrollToTopButton from 'components/ScrollToTopButton';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
@@ -79,33 +93,69 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
       <Text color="#888">Click on the Vite and React logos to learn more</Text>
       <Switch onChange={toggleFeedback}>Toggle Feedback</Switch>
       <ScrollToTopButton />
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
+      <Box
+        border="1px solid"
+        borderRadius="6px"
+        mx="12"
+        my="8"
+        boxSizing="border-box"
+        minWidth="container.sm"
+      >
+        <Flex p="4" bgColor="blackAlpha.50" justifyContent="space-between">
+          <Box flex="auto" display="block">
+            <Heading as="h2" size="md">
+              Feedback
+            </Heading>
+          </Box>
+          <Flex justifyContent="flex-end">
+            <Box pr="4">Type</Box>
+            <Box px="4">Status</Box>
+            <HStack pl="4" alignItems="center">
+              <Text>Date</Text>
+              <Icon as={AiFillCaretDown} />
+            </HStack>
+          </Flex>
+        </Flex>
+        {feedbackData.data?.map((item) => (
+          <Box borderTop="1px" p="4">
+            <Flex justifyContent="flex-start" alignItems="center">
+              <Box pr="6">
+                <Tooltip label={item.email} hasArrow>
+                  <Avatar name={item.email} size="sm" />
+                </Tooltip>
+              </Box>
+              <Box>
+                <Text>{item.feedback}</Text>
+                <HStack>
+                  <Tag variant="subtle" colorScheme="cyan">
+                    <TagLeftIcon as={VscFeedback} />
+                    <TagLabel>{item.feedbackType}</TagLabel>
+                  </Tag>
+                  <Tag variant="subtle" colorScheme="blue">
+                    <TagLeftIcon as={BiGitBranch} />
+                    <TagLabel>v{item.appVers}</TagLabel>
+                  </Tag>
+                  <Tag variant="subtle" colorScheme="orange">
+                    <TagLeftIcon as={IoMdBrowsers} />
+                    {item.browser}
+                  </Tag>
+                </HStack>
+              </Box>
+              <Spacer />
+              <Box>
+                <HStack>
+                  <Icon as={BiTimeFive} />
+                  <Text>{item.timestamp}</Text>
+                </HStack>
+                <HStack>
+                  <Icon as={MdOutlineWhereToVote} />
+                  <Text>{item.url}</Text>
+                </HStack>
+              </Box>
+            </Flex>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 }
