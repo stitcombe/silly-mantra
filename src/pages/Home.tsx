@@ -20,7 +20,12 @@ import {
   TagLabel,
 } from '@chakra-ui/react';
 import { AiFillCaretDown } from 'react-icons/ai';
-import { BiTimeFive, BiGitBranch, BiCodeCurly } from 'react-icons/bi';
+import {
+  BiTimeFive,
+  BiGitBranch,
+  BiCodeCurly,
+  BiPackage,
+} from 'react-icons/bi';
 import { VscFeedback } from 'react-icons/vsc';
 import { IoMdBrowsers } from 'react-icons/io';
 import feedbackData from 'mocks/feedback';
@@ -108,9 +113,10 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
           </Box>
           <Flex justifyContent="flex-end">
             <Box pr="4">Type</Box>
-            <Box px="4">Status</Box>
+            <Box px="4">Version</Box>
+            <Box px="4">Browser</Box>
             <HStack pl="4" alignItems="center">
-              <Text>Date</Text>
+              <Text>Environment</Text>
               <Icon as={AiFillCaretDown} />
             </HStack>
           </Flex>
@@ -124,7 +130,7 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
                 </Tooltip>
               </Box>
               <Box>
-                <Text>{item.feedback}</Text>
+                <Text mb="1">{item.feedback}</Text>
                 <HStack>
                   <Tag variant="subtle" colorScheme="cyan">
                     <TagLeftIcon as={VscFeedback} />
@@ -137,6 +143,10 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
                   <Tag variant="subtle" colorScheme="orange">
                     <TagLeftIcon as={IoMdBrowsers} />
                     {item.browser}
+                  </Tag>
+                  <Tag variant="subtle" colorScheme="green">
+                    <TagLeftIcon as={BiPackage} />
+                    {item.environemnt}
                   </Tag>
                 </HStack>
               </Box>
