@@ -20,10 +20,9 @@ import {
   TagLabel,
 } from '@chakra-ui/react';
 import { AiFillCaretDown } from 'react-icons/ai';
-import { BiTimeFive, BiGitBranch } from 'react-icons/bi';
+import { BiTimeFive, BiGitBranch, BiCodeCurly } from 'react-icons/bi';
 import { VscFeedback } from 'react-icons/vsc';
 import { IoMdBrowsers } from 'react-icons/io';
-import { MdOutlineWhereToVote } from 'react-icons/md';
 import feedbackData from 'mocks/feedback';
 import ScrollToTopButton from 'components/ScrollToTopButton';
 import reactLogo from '../assets/react.svg';
@@ -148,7 +147,7 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
                   <Text>{item.timestamp}</Text>
                 </HStack>
                 <HStack>
-                  <Icon as={MdOutlineWhereToVote} />
+                  <Icon as={BiCodeCurly} />
                   <Text>{item.url}</Text>
                 </HStack>
               </Box>
