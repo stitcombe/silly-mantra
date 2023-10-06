@@ -13,7 +13,8 @@ const feedbackData = {
     },
     {
       email: 'user2@example.com',
-      feedback: 'I encountered a bug on the login screen.',
+      feedback:
+        'Nearly 78,200 qualified applications were not offered spots at nursing schools last year, according to the American Association of Colleges of Nursing, which represents schools with baccalaureate and advanced degree programs.\n\nThis includes nearly 66,300 applications for entry-level bachelor’s degree programs. The number of applications turned away from baccalaureate programs has been higher in recent years than it was prior to 2019. (One person may submit applications to multiple schools.)',
       feedbackType: 'bug',
       browser: 'Firefox',
       url: 'https://example.com/login',
@@ -33,7 +34,8 @@ const feedbackData = {
     },
     {
       email: 'user4@example.com',
-      feedback: 'I love the new features in the latest update!',
+      feedback:
+        'Nearly 78,200 qualified applications were not offered spots at nursing schools last year, according to the American Association of Colleges of Nursing, which represents schools with baccalaureate and advanced degree programs.\n\nThis includes nearly 66,300 applications for entry-level bachelor’s degree programs. The number of applications turned away from baccalaureate programs has been higher in recent years than it was prior to 2019. (One person may submit applications to multiple schools.)',
       feedbackType: 'feedback',
       browser: 'Safari',
       url: 'https://example.com/news',

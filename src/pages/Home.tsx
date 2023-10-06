@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Flex,
@@ -15,7 +15,7 @@ import {
   Tooltip,
   Icon,
   Tag,
-  Spacer,
+  Button,
   TagLeftIcon,
   TagLabel,
 } from '@chakra-ui/react';
@@ -32,6 +32,7 @@ import feedbackData from 'mocks/feedback';
 import ScrollToTopButton from 'components/ScrollToTopButton';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
+import ExpandableText from 'components/ExpandableText';
 
 const spin = keyframes`
   from {transform: rotate(0deg);}
@@ -97,6 +98,7 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
       <Text color="#888">Click on the Vite and React logos to learn more</Text>
       <Switch onChange={toggleFeedback}>Toggle Feedback</Switch>
       <ScrollToTopButton />
+      {/* Table */}
       <Box
         border="1px solid"
         borderRadius="6px"
@@ -105,6 +107,7 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
         boxSizing="border-box"
         minWidth="container.sm"
       >
+        {/* Table Header */}
         <Flex p="4" bgColor="blackAlpha.50" justifyContent="space-between">
           <Box flex="auto" display="block">
             <Heading as="h2" size="md">
@@ -121,16 +124,21 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
             </HStack>
           </Flex>
         </Flex>
+        {/* Table Row */}
         {feedbackData.data?.map((item) => (
           <Box borderTop="1px" p="4">
+            {/* Avatar */}
             <Flex justifyContent="flex-start" alignItems="center">
               <Box pr="6">
                 <Tooltip label={item.email} hasArrow>
                   <Avatar name={item.email} size="sm" />
                 </Tooltip>
               </Box>
-              <Box>
-                <Text mb="1">{item.feedback}</Text>
+              {/* Content */}
+              <Box pr="8" w="70%">
+                <Box pb="2">
+                  <ExpandableText text={item.feedback} maxLength={150} />
+                </Box>
                 <HStack>
                   <Tag variant="subtle" colorScheme="cyan">
                     <TagLeftIcon as={VscFeedback} />
@@ -150,15 +158,14 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
                   </Tag>
                 </HStack>
               </Box>
-              <Spacer />
-              <Box>
+              <Box mr="8">
                 <HStack>
                   <Icon as={BiTimeFive} />
                   <Text>{item.timestamp}</Text>
                 </HStack>
                 <HStack>
                   <Icon as={BiCodeCurly} />
-                  <Text>{item.url}</Text>
+                  <ExpandableText text={item.url} maxLength={20} />
                 </HStack>
               </Box>
             </Flex>
