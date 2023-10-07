@@ -33,6 +33,7 @@ import {
   BiPackage,
   BiDotsVerticalRounded,
   BiGlassesAlt,
+  BiBugAlt,
 } from 'react-icons/bi';
 import { VscFeedback } from 'react-icons/vsc';
 import { IoMdBrowsers } from 'react-icons/io';
@@ -111,7 +112,7 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
       <Box
         border="1px solid"
         borderRadius="6px"
-        mx={{ base: '0', sm: '4', md: '16' }}
+        mx={{ base: '0', sm: '4', md: '14' }}
         my="8"
         boxSizing="border-box"
         minWidth="480px"
@@ -151,21 +152,32 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
                     <ExpandableText text={item.feedback} maxLength={150} />
                   </Box>
                   <HStack>
-                    <Tag variant="subtle" colorScheme="cyan">
-                      <TagLeftIcon as={VscFeedback} />
+                    <Tag
+                      variant="subtle"
+                      colorScheme={
+                        item.feedbackType === 'feedback' ? 'cyan' : 'red'
+                      }
+                    >
+                      <TagLeftIcon
+                        as={
+                          item.feedbackType === 'feedback'
+                            ? VscFeedback
+                            : BiBugAlt
+                        }
+                      />
                       <TagLabel>{item.feedbackType}</TagLabel>
                     </Tag>
                     <Tag variant="subtle" colorScheme="blue">
                       <TagLeftIcon as={BiGitBranch} />
                       <TagLabel>v{item.appVers}</TagLabel>
                     </Tag>
-                    <Tag variant="subtle" colorScheme="orange">
-                      <TagLeftIcon as={IoMdBrowsers} />
-                      {item.browser}
-                    </Tag>
                     <Tag variant="subtle" colorScheme="green">
                       <TagLeftIcon as={BiPackage} />
                       {item.environemnt}
+                    </Tag>
+                    <Tag variant="subtle" colorScheme="orange">
+                      <TagLeftIcon as={IoMdBrowsers} />
+                      {item.browser}
                     </Tag>
                   </HStack>
                 </Box>
@@ -186,7 +198,7 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
                   <Menu>
                     <MenuButton
                       as={IconButton}
-                      aria-label="row actions"
+                      aria-label="row menu"
                       icon={<BiDotsVerticalRounded />}
                       variant="outline"
                     />
