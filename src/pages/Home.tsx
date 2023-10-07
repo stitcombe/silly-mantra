@@ -18,6 +18,11 @@ import {
   TagLeftIcon,
   TagLabel,
   IconButton,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
 } from '@chakra-ui/react';
 import ExpandableText from 'components/ExpandableText';
 import { AiFillCaretDown } from 'react-icons/ai';
@@ -27,9 +32,11 @@ import {
   BiCodeCurly,
   BiPackage,
   BiDotsVerticalRounded,
+  BiGlassesAlt,
 } from 'react-icons/bi';
 import { VscFeedback } from 'react-icons/vsc';
 import { IoMdBrowsers } from 'react-icons/io';
+import { BsFillSendFill } from 'react-icons/bs';
 import feedbackData from 'mocks/feedback';
 import ScrollToTopButton from 'components/ScrollToTopButton';
 import reactLogo from '../assets/react.svg';
@@ -104,10 +111,10 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
       <Box
         border="1px solid"
         borderRadius="6px"
-        mx={{ base: '0', sm: '16' }}
+        mx={{ base: '0', sm: '4', md: '16' }}
         my="8"
         boxSizing="border-box"
-        minWidth="500px"
+        minWidth="480px"
       >
         {/* Table Header */}
         <Flex p="4" bgColor="blackAlpha.50" justifyContent="space-between">
@@ -176,11 +183,35 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
                   </HStack>
                 </Box>
                 <Box mr="2">
-                  <IconButton
-                    aria-label="row actions"
-                    icon={<BiDotsVerticalRounded />}
-                    variant="outline"
-                  />
+                  <Menu>
+                    <MenuButton
+                      as={IconButton}
+                      aria-label="row actions"
+                      icon={<BiDotsVerticalRounded />}
+                      variant="outline"
+                    />
+                    <MenuList>
+                      <MenuItem
+                        display={{ base: 'block', lg: 'none' }}
+                        isDisabled
+                        icon={<BiTimeFive />}
+                      >
+                        {item.timestamp}
+                      </MenuItem>
+                      <MenuItem
+                        display={{ base: 'block', lg: 'none' }}
+                        isDisabled
+                        icon={<BiCodeCurly />}
+                      >
+                        {item.url}
+                      </MenuItem>
+                      <MenuDivider display={{ base: 'block', lg: 'none' }} />
+                      <MenuItem icon={<BiGlassesAlt />}>Mark As Read</MenuItem>
+                      <MenuItem icon={<BsFillSendFill />}>
+                        Send To Jira
+                      </MenuItem>
+                    </MenuList>
+                  </Menu>
                 </Box>
               </HStack>
             </Flex>
