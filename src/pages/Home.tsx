@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Flex,
@@ -15,16 +15,18 @@ import {
   Tooltip,
   Icon,
   Tag,
-  Button,
   TagLeftIcon,
   TagLabel,
+  IconButton,
 } from '@chakra-ui/react';
+import ExpandableText from 'components/ExpandableText';
 import { AiFillCaretDown } from 'react-icons/ai';
 import {
   BiTimeFive,
   BiGitBranch,
   BiCodeCurly,
   BiPackage,
+  BiDotsVerticalRounded,
 } from 'react-icons/bi';
 import { VscFeedback } from 'react-icons/vsc';
 import { IoMdBrowsers } from 'react-icons/io';
@@ -32,7 +34,6 @@ import feedbackData from 'mocks/feedback';
 import ScrollToTopButton from 'components/ScrollToTopButton';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
-import ExpandableText from 'components/ExpandableText';
 
 const spin = keyframes`
   from {transform: rotate(0deg);}
@@ -99,13 +100,14 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
       <Switch onChange={toggleFeedback}>Toggle Feedback</Switch>
       <ScrollToTopButton />
       {/* Table */}
+
       <Box
         border="1px solid"
         borderRadius="6px"
-        mx="12"
+        mx={{ base: '0', sm: '16' }}
         my="8"
         boxSizing="border-box"
-        minWidth="container.sm"
+        minWidth="500px"
       >
         {/* Table Header */}
         <Flex p="4" bgColor="blackAlpha.50" justifyContent="space-between">
@@ -127,47 +129,60 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
         {/* Table Row */}
         {feedbackData.data?.map((item) => (
           <Box borderTop="1px" p="4">
-            {/* Avatar */}
-            <Flex justifyContent="flex-start" alignItems="center">
-              <Box pr="6">
-                <Tooltip label={item.email} hasArrow>
-                  <Avatar name={item.email} size="sm" />
-                </Tooltip>
-              </Box>
-              {/* Content */}
-              <Box pr="8" w="70%">
-                <Box pb="2">
-                  <ExpandableText text={item.feedback} maxLength={150} />
+            <Flex justifyContent="space-between" alignItems="start">
+              {/* Left Content */}
+              <HStack maxW="60%" alignItems="start">
+                {/* Avatar */}
+                <Box pr="6">
+                  <Tooltip label={item.email} hasArrow>
+                    <Avatar name={item.email} size="sm" />
+                  </Tooltip>
                 </Box>
-                <HStack>
-                  <Tag variant="subtle" colorScheme="cyan">
-                    <TagLeftIcon as={VscFeedback} />
-                    <TagLabel>{item.feedbackType}</TagLabel>
-                  </Tag>
-                  <Tag variant="subtle" colorScheme="blue">
-                    <TagLeftIcon as={BiGitBranch} />
-                    <TagLabel>v{item.appVers}</TagLabel>
-                  </Tag>
-                  <Tag variant="subtle" colorScheme="orange">
-                    <TagLeftIcon as={IoMdBrowsers} />
-                    {item.browser}
-                  </Tag>
-                  <Tag variant="subtle" colorScheme="green">
-                    <TagLeftIcon as={BiPackage} />
-                    {item.environemnt}
-                  </Tag>
-                </HStack>
-              </Box>
-              <Box mr="8">
-                <HStack>
-                  <Icon as={BiTimeFive} />
-                  <Text>{item.timestamp}</Text>
-                </HStack>
-                <HStack>
-                  <Icon as={BiCodeCurly} />
-                  <ExpandableText text={item.url} maxLength={20} />
-                </HStack>
-              </Box>
+                {/* Data */}
+                <Box pr="8">
+                  <Box pb="2">
+                    <ExpandableText text={item.feedback} maxLength={150} />
+                  </Box>
+                  <HStack>
+                    <Tag variant="subtle" colorScheme="cyan">
+                      <TagLeftIcon as={VscFeedback} />
+                      <TagLabel>{item.feedbackType}</TagLabel>
+                    </Tag>
+                    <Tag variant="subtle" colorScheme="blue">
+                      <TagLeftIcon as={BiGitBranch} />
+                      <TagLabel>v{item.appVers}</TagLabel>
+                    </Tag>
+                    <Tag variant="subtle" colorScheme="orange">
+                      <TagLeftIcon as={IoMdBrowsers} />
+                      {item.browser}
+                    </Tag>
+                    <Tag variant="subtle" colorScheme="green">
+                      <TagLeftIcon as={BiPackage} />
+                      {item.environemnt}
+                    </Tag>
+                  </HStack>
+                </Box>
+              </HStack>
+              {/* Right Content */}
+              <HStack maxW="40%" justify="space-between">
+                <Box mx="4" display={{ base: 'none', lg: 'block' }}>
+                  <HStack>
+                    <Icon as={BiTimeFive} />
+                    <Text>{item.timestamp}</Text>
+                  </HStack>
+                  <HStack>
+                    <Icon as={BiCodeCurly} />
+                    <Text>{item.url}</Text>
+                  </HStack>
+                </Box>
+                <Box mr="2">
+                  <IconButton
+                    aria-label="row actions"
+                    icon={<BiDotsVerticalRounded />}
+                    variant="outline"
+                  />
+                </Box>
+              </HStack>
             </Flex>
           </Box>
         ))}
