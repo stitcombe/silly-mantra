@@ -42,6 +42,7 @@ import feedbackData from 'mocks/feedback';
 import ScrollToTopButton from 'components/ScrollToTopButton';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
+import { FeedbackTag } from 'components/FeedbackTag/FeedbackTag';
 
 const spin = keyframes`
   from {transform: rotate(0deg);}
@@ -136,7 +137,11 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
         </Flex>
         {/* Table Row */}
         {feedbackData.data?.map((item) => (
-          <Box borderTop="1px" p="4">
+          <Box
+            borderTop="1px"
+            p="4"
+            bgColor={item.read ? 'transparent' : 'azure'}
+          >
             <Flex justifyContent="space-between" alignItems="start">
               {/* Left Content */}
               <HStack maxW="60%" alignItems="start">
@@ -151,34 +156,21 @@ function Home({ toggleFeedback }: { toggleFeedback: () => void }): JSX.Element {
                   <Box pb="2">
                     <ExpandableText text={item.feedback} maxLength={150} />
                   </Box>
+                  {/* Tag Stack */}
                   <HStack>
-                    <Tag
-                      variant="subtle"
-                      colorScheme={
-                        item.feedbackType === 'feedback' ? 'cyan' : 'red'
-                      }
-                    >
-                      <TagLeftIcon
-                        as={
-                          item.feedbackType === 'feedback'
-                            ? VscFeedback
-                            : BiBugAlt
-                        }
-                      />
-                      <TagLabel>{item.feedbackType}</TagLabel>
-                    </Tag>
-                    <Tag variant="subtle" colorScheme="blue">
-                      <TagLeftIcon as={BiGitBranch} />
-                      <TagLabel>v{item.appVers}</TagLabel>
-                    </Tag>
-                    <Tag variant="subtle" colorScheme="green">
-                      <TagLeftIcon as={BiPackage} />
-                      {item.environemnt}
-                    </Tag>
-                    <Tag variant="subtle" colorScheme="orange">
-                      <TagLeftIcon as={IoMdBrowsers} />
-                      {item.browser}
-                    </Tag>
+                    <FeedbackTag
+                      variantType={item.feedbackType}
+                      label={item.feedbackType}
+                    />
+                    <FeedbackTag
+                      variantType="appVers"
+                      label={`v${item.appVers}`}
+                    />
+                    <FeedbackTag
+                      variantType="environemnt"
+                      label={item.environemnt}
+                    />
+                    <FeedbackTag variantType="browser" label={item.browser} />
                   </HStack>
                 </Box>
               </HStack>
