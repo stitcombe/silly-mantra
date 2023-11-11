@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Heading, Text } from '@chakra-ui/react';
 
-function NotFound(): JSX.Element {
+function NotAuthorized(): JSX.Element {
   return (
     <Box
       marginTop={40}
@@ -16,16 +16,16 @@ function NotFound(): JSX.Element {
         fontSize="9xl"
         fontWeight="extrabold"
       >
-        404
+        Nice Try
       </Heading>
       <Text fontSize="large">
-        Sorry, the page you&apos;re looking for doesn&apos;t exist.
+        You don&apos;t have permission to access this page.
       </Text>
       <Button marginTop={6} colorScheme="purple" size="lg" variant="outline">
-        Go Back Home
+        Request Access
       </Button>
     </Box>
   );
 }
 
-export default NotFound;
+export default NotAuthorized;
