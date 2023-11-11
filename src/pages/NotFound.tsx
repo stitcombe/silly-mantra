@@ -4,7 +4,7 @@ import { Box, Button, Heading, Text } from '@chakra-ui/react';
 function NotFound(): JSX.Element {
   return (
     <Box
-      marginTop={50}
+      marginTop={40}
       display="flex"
       alignItems="center"
       flexDirection="column"
