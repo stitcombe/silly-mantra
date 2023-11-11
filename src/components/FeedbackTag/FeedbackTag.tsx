@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* Icons */
 import { Tag, TagLeftIcon, TagLabel } from '@chakra-ui/react';
 import { VscFeedback } from 'react-icons/vsc';
 import { BiBugAlt, BiGitBranch, BiPackage } from 'react-icons/bi';

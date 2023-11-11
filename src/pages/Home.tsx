@@ -14,9 +14,6 @@ import {
   Avatar,
   Tooltip,
   Icon,
-  Tag,
-  TagLeftIcon,
-  TagLabel,
   IconButton,
   Menu,
   MenuButton,
@@ -24,25 +21,28 @@ import {
   MenuItem,
   MenuDivider,
 } from '@chakra-ui/react';
-import ExpandableText from 'components/ExpandableText';
+
+/* Icons */
 import { AiFillCaretDown } from 'react-icons/ai';
 import {
   BiTimeFive,
-  BiGitBranch,
   BiCodeCurly,
-  BiPackage,
   BiDotsVerticalRounded,
   BiGlassesAlt,
-  BiBugAlt,
 } from 'react-icons/bi';
-import { VscFeedback } from 'react-icons/vsc';
-import { IoMdBrowsers } from 'react-icons/io';
 import { BsFillSendFill } from 'react-icons/bs';
-import feedbackData from 'mocks/feedback';
+
+/* Components */
+import ExpandableText from 'components/ExpandableText';
 import ScrollToTopButton from 'components/ScrollToTopButton';
+import FeedbackTag from 'components/FeedbackTag';
+
+/* Mocks */
+import feedbackData from 'mocks/feedback';
+
+/* Assets */
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
-import { FeedbackTag } from 'components/FeedbackTag/FeedbackTag';
 
 const spin = keyframes`
   from {transform: rotate(0deg);}
