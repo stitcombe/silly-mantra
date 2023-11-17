@@ -1,28 +1,38 @@
-import React, { useState } from 'react';
-import { ChakraProvider, Box } from '@chakra-ui/react';
-import FeedbackPop from 'components/FeedbackPop';
+import React from 'react';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+} from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
+import { ChakraProvider } from '@chakra-ui/react';
+
+/* Components */
 import Home from 'pages/Home';
-import Header from 'layout/Header';
-import { Hero } from 'pages/Landing/Hero';
-import ArticlesCard from 'pages/Landing/ArticlesCard';
+import NotFound from 'pages/NotFound';
+import ReactError from 'pages/ReactError';
+import Dashboard from 'layout/Dashboard';
+import Fallback from 'pages/Fallback';
+
+const routes = createRoutesFromElements(
+  <Route element={<Dashboard />} errorElement={<ReactError />}>
+    <Route index element={<Home />} />
+    <Route path="/no" element={<NotFound />} />
+  </Route>
+);
+
+const router = createBrowserRouter(routes);
 
 function App() {
-  const [showFeedback, setShowFeedback] = useState(false);
-
-  const setFeedback = () => {
-    setShowFeedback((prevShowFeedback) => !prevShowFeedback);
-  };
-
   return (
-    <ChakraProvider>
-      <Box width="100vw" minWidth="20em">
-        <Header />
-        <Hero />
-        <ArticlesCard />
-        <Home toggleFeedback={setFeedback} />
-        {showFeedback ? <FeedbackPop /> : null}
-      </Box>
-    </ChakraProvider>
+    <ErrorBoundary FallbackComponent={Fallback}>
+      <ChakraProvider>
+        <ErrorBoundary FallbackComponent={ReactError}>
+          <RouterProvider router={router} />
+        </ErrorBoundary>
+      </ChakraProvider>
+    </ErrorBoundary>
   );
 }
 

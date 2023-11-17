@@ -18,7 +18,7 @@ function NotFound(): JSX.Element {
       >
         404
       </Heading>
-      <Text fontSize="large">
+      <Text align="center" fontSize="large">
         Sorry, the page you&apos;re looking for doesn&apos;t exist.
       </Text>
       <Button marginTop={6} colorScheme="purple" size="lg" variant="outline">

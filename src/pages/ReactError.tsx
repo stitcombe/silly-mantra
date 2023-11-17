@@ -18,7 +18,7 @@ function ReactError(): JSX.Element {
       >
         Oh No!
       </Heading>
-      <Text fontSize="large">
+      <Text align="center" fontSize="large">
         Something went wrong while rendering the app.
       </Text>
       <HStack spacing={6} marginTop={6}>

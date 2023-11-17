@@ -18,7 +18,7 @@ function NotAuthorized(): JSX.Element {
       >
         Nice Try
       </Heading>
-      <Text fontSize="large">
+      <Text align="center" fontSize="large">
         You don&apos;t have permission to access this page.
       </Text>
       <Button marginTop={6} colorScheme="purple" size="lg" variant="outline">
