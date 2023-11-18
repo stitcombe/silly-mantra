@@ -37,6 +37,8 @@ import { BsFillSendFill } from 'react-icons/bs';
 import ExpandableText from 'components/ExpandableText';
 import ScrollToTopButton from 'components/ScrollToTopButton';
 import FeedbackTag from 'components/FeedbackTag';
+import ReadingProgressBar from 'components/ReadingProgressBar';
+import FeedbackPop from 'components/FeedbackPop';
 
 /* Mocks */
 import feedbackData from 'mocks/feedback';
@@ -45,7 +47,6 @@ import feedbackData from 'mocks/feedback';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
 import { Hero } from './Landing/Hero';
-import FeedbackPop from 'components/FeedbackPop';
 
 const spin = keyframes`
   from {transform: rotate(0deg);}
@@ -63,6 +64,7 @@ function Home(): JSX.Element {
   return (
     <>
       <Hero />
+      <ReadingProgressBar />
       <Box>
         <HStack spacing={4} alignContent="center">
           <LinkBox>
