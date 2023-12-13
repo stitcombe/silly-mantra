@@ -19,11 +19,13 @@ import TestSuiteItemSummary from 'pages/TestSuites/TestSuiteItemSummary';
 import TestSuiteItemMembers from 'pages/TestSuites/TestSuiteItemMembers';
 import TestSuiteItemMemberNoDetails from 'pages/TestSuites/TestSuiteItemMemberNoDetails';
 import TestSuiteItemMemberDetails from 'pages/TestSuites/TestSuiteItemMemberDetails';
+import Gridy from 'pages/Grid';
 
 const routes = createRoutesFromElements(
   <Route element={<Dashboard />} errorElement={<ReactError />}>
     <Route index element={<Home />} />
     <Route path="/no" element={<NotFound />} />
+    <Route path="/gridy" element={<Gridy />} />
     <Route path="/test-suites/:id" element={<TestSuiteItem />}>
       <Route index element={<TestSuiteItemSummary />} />
       <Route path="/test-suites/:id/members" element={<TestSuiteItemMembers />}>
