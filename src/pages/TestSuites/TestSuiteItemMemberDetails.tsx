@@ -1,9 +1,14 @@
 import React from 'react';
 import { Card, CardBody, Heading } from '@chakra-ui/react';
-import { useParams } from 'react-router-dom';
+import { useOutletContext, useParams } from 'react-router-dom';
+import { IMember } from './TestSuiteItemMembers';
 
 export default function TestSuiteItemMemberDetails() {
   const { memberId } = useParams();
+  const members = useOutletContext<IMember[]>();
+
+  const member = members.find((item) => item.id.toString() === memberId);
+
   return (
     <Card
       variant="outline"
@@ -13,7 +18,7 @@ export default function TestSuiteItemMemberDetails() {
       justify="center"
     >
       <CardBody>
-        <Heading p={6}>Member {memberId}</Heading>
+        <Heading p={6}>{member?.name}</Heading>
       </CardBody>
     </Card>
   );
