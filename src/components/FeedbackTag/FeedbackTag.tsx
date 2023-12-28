@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* Icons */
 import { Tag, TagLeftIcon, TagLabel } from '@chakra-ui/react';
 import { VscFeedback } from 'react-icons/vsc';
 import { BiBugAlt, BiGitBranch, BiPackage } from 'react-icons/bi';
@@ -32,18 +34,20 @@ const variant = {
   },
 };
 
+export type VariantType =
+  | 'feedback'
+  | 'bug'
+  | 'idea'
+  | 'appVers'
+  | 'environemnt'
+  | 'browser';
+
 export function FeedbackTag({
   label,
   variantType,
 }: {
   label: string;
-  variantType:
-    | 'feedback'
-    | 'bug'
-    | 'idea'
-    | 'appVers'
-    | 'environemnt'
-    | 'browser';
+  variantType: VariantType;
 }): JSX.Element {
   const selectedVariant = variant[variantType];
 

@@ -19,6 +19,7 @@ import {
   FiSearch,
   FiMoreHorizontal,
 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 function SiteIcon() {
   return (
@@ -53,12 +54,14 @@ export default function Header(): JSX.Element {
       <Flex p={2} flexWrap="wrap" justifyContent="space-between">
         <Flex alignItems="center" boxSizing="border-box">
           {/* Icon + Site Name */}
-          <Flex mr={3} alignItems="center" cursor="pointer">
-            <SiteIcon />
-            <Heading as="h4" size="sm" mr={3} ml={2} fontWeight="600">
-              GitHub Docs
-            </Heading>
-          </Flex>
+          <Link to="/">
+            <Flex mr={3} alignItems="center" cursor="pointer">
+              <SiteIcon />
+              <Heading as="h4" size="sm" mr={3} ml={2} fontWeight="600">
+                GitHub Docs
+              </Heading>
+            </Flex>
+          </Link>
           {/* Version Menu */}
           <Box
             borderLeftStyle="solid"
@@ -90,11 +93,13 @@ export default function Header(): JSX.Element {
           </Box>
         </Flex>
         <Flex alignItems="center">
-          <IconButton
-            aria-label="search"
-            icon={<FiSearch />}
-            variant="outline"
-          />
+          <Link to="/no">
+            <IconButton
+              aria-label="search"
+              icon={<FiSearch />}
+              variant="outline"
+            />
+          </Link>
           <Box pl={3} display={{ base: 'block', sm: 'none' }}>
             <Menu>
               <MenuButton

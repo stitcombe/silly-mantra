@@ -92,7 +92,13 @@ export function FeedbackPop() {
           </PopoverTrigger>
           <PopoverContent>
             <PopoverArrow />
-            <PopoverHeader background="black" color="white" fontSize={22}>
+            <PopoverHeader
+              background="black"
+              color="white"
+              fontSize={22}
+              display="flex"
+              justifyContent="center"
+            >
               {popHeader}
             </PopoverHeader>
             {showForm ? (
@@ -105,7 +111,8 @@ export function FeedbackPop() {
               <PopoverBody>
                 <ButtonGroup
                   flexDirection="column"
-                  alignContent="center"
+                  display="flex"
+                  justifyContent="center"
                   variant="ghost"
                   spacing={2}
                 >

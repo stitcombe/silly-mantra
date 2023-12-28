@@ -1,16 +1,12 @@
 /* eslint-disable */
 
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 
 const handlers = [
-  rest.post('https://abc.com/api/feedback', async (_req, res, ctx) => {
-    // Simulate a 2-second delay before responding
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  http.post('https://abc.com/api/feedback', async ({ request }) => {
+    const newPost = await request.json();
 
-    return res(
-      ctx.status(200),
-      ctx.json({ message: 'Feedback submitted successfully' })
-    );
+    return HttpResponse.json(newPost, { status: 201 });
   }),
 ];
 
