@@ -63,17 +63,17 @@ jobs:
           files: |
             ./coverage/vitest-junit.xml
 
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    needs: typecheck-lint-test
+  # build:
+  #   name: Build
+  #   runs-on: ubuntu-latest
+  #   needs: typecheck-lint-test
 
-    steps:
-      - name: Bump Semantic Version
-        run: pnpm version <semantic-version-option>
+  #   steps:
+  #     - name: Bump Semantic Version
+  #       run: pnpm version <semantic-version-option>
 
-      - name: Build Project
-        run: pnpm build
+  #     - name: Build Project
+  #       run: pnpm build
 
-      - name: Upload Artifacts
-        run: pnpm upload
+  #     - name: Upload Artifacts
+  #       run: pnpm upload
