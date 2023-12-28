@@ -44,6 +44,7 @@ import FeedbackPop from 'components/FeedbackPop';
 import feedbackData from 'mocks/feedback';
 
 /* Assets */
+import { VariantType } from 'components/FeedbackTag/FeedbackTag';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
 import { Hero } from './Landing/Hero';
@@ -173,7 +174,7 @@ function Home(): JSX.Element {
                     {/* Tag Stack */}
                     <HStack>
                       <FeedbackTag
-                        variantType={item.feedbackType}
+                        variantType={item.feedbackType as VariantType}
                         label={item.feedbackType}
                       />
                       <FeedbackTag

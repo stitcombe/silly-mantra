@@ -34,18 +34,20 @@ const variant = {
   },
 };
 
+export type VariantType =
+  | 'feedback'
+  | 'bug'
+  | 'idea'
+  | 'appVers'
+  | 'environemnt'
+  | 'browser';
+
 export function FeedbackTag({
   label,
   variantType,
 }: {
   label: string;
-  variantType:
-    | 'feedback'
-    | 'bug'
-    | 'idea'
-    | 'appVers'
-    | 'environemnt'
-    | 'browser';
+  variantType: VariantType;
 }): JSX.Element {
   const selectedVariant = variant[variantType];
 

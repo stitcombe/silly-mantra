@@ -13,8 +13,8 @@ export function useActiveMemberId(
     return storedState !== undefined
       ? storedState
       : typeof initialState === 'function'
-      ? initialState()
-      : initialState;
+        ? initialState()
+        : initialState;
   });
 
   useEffect(() => {

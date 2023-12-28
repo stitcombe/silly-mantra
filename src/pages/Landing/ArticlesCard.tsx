@@ -5,7 +5,7 @@ import { GoRocket } from 'react-icons/go';
 export default function ArticlesCard() {
   return (
     <Box>
-      <Flex alignItems='center'>
+      <Flex alignItems="center">
         <Icon as={GoRocket} mr={2} />
         <Heading as="h2" size="md">
           Get started
