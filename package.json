@@ -23,7 +23,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@types/node": "^20.8.9",
-    "@vitest/ui": "^1.1.0",
+    "@vitest/ui": "^1.1.1",
     "axios": "^1.6.3",
     "canvas-confetti": "^1.9.2",
     "chakra-ui-markdown-renderer": "^4.1.0",
