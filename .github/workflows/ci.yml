@@ -63,6 +63,11 @@ jobs:
           files: |
             ./coverage/vitest-junit.xml
 
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          bCODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
   # build:
   #   name: Build
   #   runs-on: ubuntu-latest
