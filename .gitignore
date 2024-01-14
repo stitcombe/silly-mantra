@@ -13,8 +13,9 @@ dist-ssr
 *.local
 
 # vitest
-coverage
+coverage/**
 html
+!coverage/vitest-junit.xml
 
 # Editor directories and files
 .idea
