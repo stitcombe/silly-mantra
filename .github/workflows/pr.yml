@@ -119,7 +119,7 @@ jobs:
         uses: ietf-tools/semver-action@v1
         with:
           token: ${{ github.token }}
-          branch: main
+          branch: ${{ github.head_ref }}
           patchAll: true
 
       - name: Update package.json
