@@ -119,7 +119,7 @@ jobs:
         uses: ietf-tools/semver-action@v1
         with:
           token: ${{ github.token }}
-          branch: main
+          branch: ${{ github.head_ref }}
           patchAll: true
 
       - name: Update package.json
@@ -130,7 +130,8 @@ jobs:
           git config --local user.email '41898282+github-actions[bot]@users.noreply.github.com'
           echo "updating project version to $NEW_VERSION"  
           pnpm version $NEW_VERSION || echo "::warning title=Updating project version failed::The version update command didn't work."
-          git push || echo "::warning title=Git push failed::Unable to push the commit with the updated project version."
+          git tag v$NEW_VERSION || echo "::warning:: unable to create version tag"
+          git push || echo "::warning::Unable to push the commit with the updated project version."
 
       - name: Parse project name from package.json
         id: parse-project-name
