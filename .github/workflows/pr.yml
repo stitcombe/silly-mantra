@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '21'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -44,14 +44,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Log Project Folder/File Structure
-        run: echo ls -R > project_structure.log
+      - name: Print Project Structure
+        run: ls -lR
 
       - name: Run Typecheck
         run: pnpm type-check
 
       - name: Run ESLint
-        run: pnpm lint
+        run: pnpm lint --max-warnings 0
 
       - name: Run Tests
         run: pnpm test
@@ -71,3 +71,86 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           directory: ./coverage
+
+  bump-build:
+    name: 'Bump Version, Build'
+    runs-on: ubuntu-latest
+    needs: typecheck-lint-test
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '21'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Get Semantic Version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ github.token }}
+          branch: main
+          patchAll: true
+
+      - name: Update package.json
+        env:
+          NEW_VERSION: ${{ steps.semver.outputs.next }}
+        run: |
+          git config --local user.name 'github-actions[bot]'
+          git config --local user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          echo "updating project version to $NEW_VERSION"  
+          pnpm version $NEW_VERSION || echo "::warning title=Updating project version failed::The version update command didn't work."
+          git push || echo "::warning title=Git push failed::Unable to push the commit with the updated project version."
+
+      - name: Parse project name from package.json
+        id: parse-project-name
+        run: |
+          PACKAGE_JSON_PATH="./package.json"
+          if [ -f "$PACKAGE_JSON_PATH" ]; then
+            PACKAGE_NAME=$(jq -r '.name' "$PACKAGE_JSON_PATH")
+            if [ -n "$PACKAGE_NAME" ]; then
+              echo "Package Name: $PACKAGE_NAME"
+              echo "PROJECT_NAME=$PACKAGE_NAME" >> "$GITHUB_OUTPUT"
+            else
+              echo "Name field is empty in package.json"
+            fi
+          else
+            echo "package.json not found at $PACKAGE_JSON_PATH"
+          fi
+
+      - name: Build Project
+        run: pnpm build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.parse-project-name.outputs.PROJECT_NAME }}-${{ steps.semver.outputs.next }}
+          path: ./dist/
