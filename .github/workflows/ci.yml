@@ -87,8 +87,8 @@ jobs:
           git config --local user.name 'github-actions[bot]'
           git config --local user.email '41898282+github-actions[bot]@users.noreply.github.com'
           echo "updating project version to $NEW_VERSION"  
-          pnpm version $NEW_VERSION || echo ::warning title=Updating project version failed::The version update command didn't work.
-          git push || echo ::warning title=Git push failed::Unable to push the commit with the updated project version.
+          pnpm version $NEW_VERSION || echo "::warning title=Updating project version failed::The version update command didn't work."
+          git push || echo "::warning title=Git push failed::Unable to push the commit with the updated project version."
   # build:
   #   name: Build
   #   runs-on: ubuntu-latest
