@@ -63,11 +63,14 @@ jobs:
           files: |
             ./coverage/vitest-junit.xml
 
+      - name: Run Coverage
+        run: pnpm coverage
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage/vitest-junit.xml
+          directory: ./coverage
 
   # build:
   #   name: Build
