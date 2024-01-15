@@ -1,3 +1,3 @@
-# React + TypeScript + Vite
+[![codecov](https://codecov.io/github/stitcombe/silly-mantra/graph/badge.svg?token=DQHWDOZIWX)](https://codecov.io/github/stitcombe/silly-mantra)
 
-An opinionated template to scaffold a project quickly.
+# silly-mantra
