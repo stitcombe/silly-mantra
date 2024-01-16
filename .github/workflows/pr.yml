@@ -122,16 +122,14 @@ jobs:
           branch: ${{ github.head_ref }}
           patchAll: true
 
-      - name: Update package.json
-        env:
-          NEW_VERSION: ${{ steps.semver.outputs.next }}
+      - name: Update package.json and create commit tag
         run: |
           git config --local user.name 'github-actions[bot]'
           git config --local user.email '41898282+github-actions[bot]@users.noreply.github.com'
           echo "updating project version to $NEW_VERSION"  
-          pnpm version $NEW_VERSION || echo "::warning title=Updating project version failed::The version update command didn't work."
-          git tag v$NEW_VERSION || echo "::warning:: unable to create version tag"
-          git push || echo "::warning::Unable to push the commit with the updated project version."
+          pnpm version $nextStrict || echo "::warning title=Updating project version failed::The version update command didn't work."
+          git tag $next || echo "::warning:: unable to create version tag"
+          git push --tags || echo "::warning::Unable to push the commit with the updated project version."
 
       - name: Parse project name from package.json
         id: parse-project-name
