@@ -83,8 +83,8 @@ devDependencies:
     specifier: ^4.1.0
     version: 4.2.1(vite@5.0.10)
   '@vitest/coverage-v8':
-    specifier: ^1.1.1
-    version: 1.1.1(vitest@1.1.1)
+    specifier: ^1.2.1
+    version: 1.2.1(vitest@1.1.1)
   eslint:
     specifier: ^8.56.0
     version: 8.56.0
@@ -2394,8 +2394,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vitest/coverage-v8@1.1.1(vitest@1.1.1):
-    resolution: {integrity: sha512-TCXSh6sA92t7D5p7HJ64sPCi+szP8E3NiKTsR3YR8vVEVZB9yclQu2btktCthxahKBl7PwheP5OuejYg13xccg==}
+  /@vitest/coverage-v8@1.2.1(vitest@1.1.1):
+    resolution: {integrity: sha512-fJEhKaDwGMZtJUX7BRcGxooGwg1Hl0qt53mVup/ZJeznhvL5EodteVnb/mcByhEcvVWbK83ZF31c7nPEDi4LOQ==}
     peerDependencies:
       vitest: ^1.0.0
     dependencies:
@@ -2407,7 +2407,7 @@ packages:
       istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.6
       magic-string: 0.30.5
-      magicast: 0.3.2
+      magicast: 0.3.3
       picocolors: 1.0.0
       std-env: 3.7.0
       test-exclude: 6.0.0
@@ -4700,8 +4700,8 @@ packages:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /magicast@0.3.2:
-    resolution: {integrity: sha512-Fjwkl6a0syt9TFN0JSYpOybxiMCkYNEeOTnOTNRbjphirLakznZXAqrXgj/7GG3D1dvETONNwrBfinvAbpunDg==}
+  /magicast@0.3.3:
+    resolution: {integrity: sha512-ZbrP1Qxnpoes8sz47AM0z08U+jW6TyRgZzcWy3Ma3vDhJttwMwAFDMMQFobwdBxByBD46JYmxRzeF7w2+wJEuw==}
     dependencies:
       '@babel/parser': 7.23.6
       '@babel/types': 7.23.6
